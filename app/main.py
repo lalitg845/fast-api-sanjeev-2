@@ -9,6 +9,7 @@ from .config import Settings
 
 app = FastAPI()
 
+origins = ["*"]  # to whitelist all api
 origins = ["https://www.google.com"]
 
 app.add_middleware(
@@ -22,7 +23,7 @@ app.add_middleware(
 
 @app.get('/')
 def root():
-    return {'message': 'hello world'}
+    return {'message': 'hello world!!!'}
 
 
 app.include_router(post.router)
