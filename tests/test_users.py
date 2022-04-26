@@ -5,11 +5,11 @@ from app import schemas
 from app.config import settings
 
 
-def test_root(client):
-    res = client.get('/')
-    # print(res.json()['message'])
-    assert res.json()['message'] == 'hello world!!'
-    assert res.status_code == 200
+# def test_root(client):
+#     res = client.get('/')
+#     # print(res.json()['message'])
+#     assert res.json()['message'] == 'hello world!!'
+#     assert res.status_code == 200
 
 
 def test_create_user(client):
