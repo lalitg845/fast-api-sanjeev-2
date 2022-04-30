@@ -20,6 +20,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+asfdsaf asldfj
+
 
 @app.get('/')
 def root():
