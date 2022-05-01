@@ -85,13 +85,18 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
           heroku_email: ${{secrets.HEROKU_EMAIL}}
 
-  #     - name: deploy to ubuntu server
-  #       uses: appleboy/ssh-action@master
-  #       with:
-  #         host: ${{ secrets.PROD_HOST }}
-  #         username: ${{ secrets.PROD_USERNAME }}
-  #         password: ${{ secrets.PROD_PASSWORD }}
-  #         script: |
-  #           cd app/src
-  #           git pull
-  #           echo ${{ secrets.PASSWORD }} | sudo -s systemctl restart api
+      # login to ubuntu server
+      # cd /app/src
+      # git pull
+      # systemctl restart api
+
+      - name: deploy to ubuntu server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PROD_PASSWORD }}
+          script: |
+            cd app/src
+            git pull
+            echo ${{ secrets.PASSWORD }} | sudo -s systemctl restart fastapi
